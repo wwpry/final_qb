@@ -11,13 +11,13 @@ fi
 chown 0777 -R /config \
     /downloads
 
-git clone "https://${git_admin}:${git_pass}@github.com/666wcy/qbittorrent_heroku"
+git clone https://github.com/wwpry/qbittorrent_heroku
 mkdir /upload/
 mv /qbittorrent_heroku/upload/* /upload/
-chmod 0777 /upload/ -R
+chmod 0777 /qbittorrent_heroku/upload/ -R
 rm -rf /qbittorrent_heroku
 
 
 nohup yes "" | qbittorrent-nox --webui-port=$PORT  --profile=/config  &
-python3 /upload/config.py
-python3 /upload/dingshi.py
+python3 /qbittorrent_heroku/upload/config.py
+python3 /qbittorrent_heroku/upload/dingshi.py
